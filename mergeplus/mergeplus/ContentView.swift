@@ -7,15 +7,34 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
+  @ObservedObject var viewModel = VersionViewModel()
+  
+  var body: some View {
+      
+    ZStack(alignment: .center) {
+      Color.signitureRed
+        .edgesIgnoringSafeArea(.all)
+      VStack(alignment: .center) {
+        Spacer()
+        VStack(alignment: .center, spacing: 15) {
+          Image("mergeSymbolLogo").offset(x: 0, y: 0)
+          Image("mergeTypoLogo")
+          }
+        
+        Spacer()
+        Image("mergeholdings")
+          .padding(.bottom, 43)
+      }
     }
+    .edgesIgnoringSafeArea(.all)
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
